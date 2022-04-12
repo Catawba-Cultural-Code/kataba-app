@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { View, Text, Pressable } from 'react-native'
+import { useTheme } from '../../Theme'
 
 import {
   CommunityIcon,
@@ -12,7 +13,7 @@ import {
 } from '../Icons'
 const NavButton = ({ children, name = 'Home' }) => {
   const navigation = useNavigation()
-
+  const { white } = useTheme()
   return (
     <Pressable
       onPress={() => navigation.navigate(name)}
@@ -20,6 +21,7 @@ const NavButton = ({ children, name = 'Home' }) => {
         flex: 1,
         alignItems: 'center',
         height: 50,
+        backgroundColor: white,
       }}
     >
       <View style={{ position: 'absolute' }}>{children}</View>

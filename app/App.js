@@ -9,6 +9,7 @@ import Story from './Screens/Story'
 import Language from './Screens/Language'
 import { View, Text } from 'react-native'
 import NavBar from './Components/NavBar'
+import { ThemeProvider } from './Theme'
 
 const Stack = createNativeStackNavigator()
 
@@ -17,30 +18,32 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={{ flex: 1 }}>
-        <View
-          style={{
-            flex: 1,
-            paddingTop: 50,
-            paddingHorizontal: 10,
-            backgroundColor: 'white',
-          }}
-        >
-          <Stack.Navigator
-            initialRouteName='Home'
-            screenOptions={{ headerShown: false }}
+      <ThemeProvider>
+        <View style={{ flex: 1 }}>
+          <View
+            style={{
+              flex: 1,
+              paddingTop: 50,
+              paddingHorizontal: 10,
+              backgroundColor: 'white',
+            }}
           >
-            <Stack.Screen name='Home' component={Home} />
-            <Stack.Screen name='Technology' component={Technology} />
-            <Stack.Screen name='Story' component={Story} />
-            <Stack.Screen name='Wellness' component={Wellness} />
-            <Stack.Screen name='Manu' component={Manu} />
-            <Stack.Screen name='Community' component={Community} />
-            <Stack.Screen name='Language' component={Language} />
-          </Stack.Navigator>
+            <Stack.Navigator
+              initialRouteName='Home'
+              screenOptions={{ headerShown: false }}
+            >
+              <Stack.Screen name='Home' component={Home} />
+              <Stack.Screen name='Technology' component={Technology} />
+              <Stack.Screen name='Story' component={Story} />
+              <Stack.Screen name='Wellness' component={Wellness} />
+              <Stack.Screen name='Manu' component={Manu} />
+              <Stack.Screen name='Community' component={Community} />
+              <Stack.Screen name='Language' component={Language} />
+            </Stack.Navigator>
+          </View>
+          <NavBar />
         </View>
-        <NavBar />
-      </View>
+      </ThemeProvider>
     </NavigationContainer>
   )
 }
