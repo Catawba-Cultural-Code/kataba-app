@@ -1,4 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native'
+import {
+  createNavigationContainerRef,
+  NavigationContainer,
+} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from './Screens/Home'
 import Technology from './Screens/Technology'
@@ -8,8 +11,9 @@ import Community from './Screens/Community'
 import Story from './Screens/Story'
 import Language from './Screens/Language'
 import { View, Text } from 'react-native'
-import NavBar from './Components/NavBar'
+import NavBar, { NavProvider } from './Components/NavBar'
 import { ThemeProvider } from './Theme'
+import Header from './Components/Header'
 
 const Stack = createNativeStackNavigator()
 
@@ -25,9 +29,9 @@ export default function App() {
               flex: 1,
               paddingTop: 50,
               paddingHorizontal: 10,
-              backgroundColor: 'white',
             }}
           >
+            <Header />
             <Stack.Navigator
               initialRouteName='Home'
               screenOptions={{ headerShown: false }}

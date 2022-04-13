@@ -1,10 +1,14 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { ManuIcon } from '../../Components/Icons'
+import { Page } from '../../Components/Page'
+import { useTheme } from '../../Theme'
 const Manu = () => {
+  const { teal } = useTheme()
   return (
-    <View>
-      <Text>Manu</Text>
-    </View>
+    <Page color={teal} title='Manu' Icon={ManuIcon}>
+      <Text>earth stuff!</Text>
+    </Page>
   )
 }
 

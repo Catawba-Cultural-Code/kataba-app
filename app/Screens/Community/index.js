@@ -1,10 +1,14 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { CommunityIcon } from '../../Components/Icons'
+import { Page } from '../../Components/Page'
+import { useTheme } from '../../Theme'
 const Community = () => {
+  const { orange } = useTheme()
   return (
-    <View>
-      <Text>Community</Text>
-    </View>
+    <Page title='Community' color={orange} Icon={CommunityIcon}>
+      <Text>This is where stuff related to citizenship and such will be</Text>
+    </Page>
   )
 }
 

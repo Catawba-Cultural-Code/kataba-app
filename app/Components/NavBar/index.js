@@ -1,6 +1,7 @@
-import { useNavigation } from '@react-navigation/native'
-import React from 'react'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import { View, Text, Pressable } from 'react-native'
+
 import { useTheme } from '../../Theme'
 
 import {
@@ -11,12 +12,15 @@ import {
   TechnologyIcon,
   WellnessIcon,
 } from '../Icons'
-const NavButton = ({ children, name = 'Home' }) => {
-  const navigation = useNavigation()
+
+const NavButton = ({ children, name = 'Home', color }) => {
+  const { navigate } = useNavigation()
+
   const { white } = useTheme()
+
   return (
     <Pressable
-      onPress={() => navigation.navigate(name)}
+      onPress={() => navigate(name)}
       style={{
         flex: 1,
         alignItems: 'center',
@@ -29,25 +33,26 @@ const NavButton = ({ children, name = 'Home' }) => {
   )
 }
 const NavBar = () => {
+  const { red, green, teal, blue, orange, yellow } = useTheme()
   return (
     <View style={{ flexDirection: 'row', paddingTop: 20, paddingBottom: 30 }}>
-      <NavButton name='Wellness'>
+      <NavButton name='Wellness' color={red}>
         <WellnessIcon />
       </NavButton>
-      <NavButton name='Language'>
+      <NavButton name='Language' color={yellow}>
         <LanguageIcon />
       </NavButton>
-      <NavButton name='Technology'>
+      <NavButton name='Technology' color={green}>
         <TechnologyIcon size={30} />
       </NavButton>
-      <NavButton name='Manu'>
+      <NavButton name='Manu' color={teal}>
         <ManuIcon />
       </NavButton>
 
-      <NavButton name='Community'>
+      <NavButton name='Community' color={orange}>
         <CommunityIcon />
       </NavButton>
-      <NavButton name='Story'>
+      <NavButton name='Story' color={blue}>
         <StoryIcon size={30} />
       </NavButton>
     </View>
