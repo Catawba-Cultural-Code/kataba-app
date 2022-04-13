@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font'
 import { createContext, useContext } from 'react'
 
 const ThemeContext = createContext()
-const COLORS = {
+export const COLORS = {
   black: '#000',
   white: '#fff',
   navy: '#051940',
