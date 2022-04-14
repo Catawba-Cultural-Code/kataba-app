@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { TechnologyIcon } from '../../Components/Icons'
 import { Page } from '../../Components/Page'
-import { useTheme } from '../../Theme'
+import { useTheme } from '../../hooks/useTheme'
 const Technology = () => {
   const { green } = useTheme()
   return (

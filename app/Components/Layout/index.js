@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text, Pressable } from 'react-native'
 import components from '../../components'
 
-import { useTheme } from '../../Theme'
+import { useTheme } from '../../hooks/useTheme'
 
 import Header from './Header'
 

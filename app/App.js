@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native-stack'
 
 import Home from './Screens/Home'
-import { ThemeProvider } from './Theme'
+import { ThemeProvider } from './hooks/useTheme'
 import Layout from './Components/Layout'
 import components from './components'
 

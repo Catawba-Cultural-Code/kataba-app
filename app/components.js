@@ -14,7 +14,7 @@ import Community from './Screens/Community'
 import Story from './Screens/Story'
 import Language from './Screens/Language'
 
-import { COLORS } from './Theme'
+import { COLORS } from './hooks/useTheme'
 const { red, yellow, green, teal, orange, blue } = COLORS
 export default [
   { name: 'Wellness', color: red, Icon: WellnessIcon, component: Wellness },
