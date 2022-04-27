@@ -4,6 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Fontisto } from '@expo/vector-icons'
+
 export const LanguageIcon = ({ size = 24, color = 'black' }) => (
   <MaterialCommunityIcons
     name='comment-text-multiple'
