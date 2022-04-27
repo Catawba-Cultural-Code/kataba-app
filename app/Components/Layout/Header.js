@@ -5,8 +5,8 @@ const Header = ({ handlePress }) => {
   const navigation = useNavigation()
   return (
     <View>
-      <Pressable onPress={handlePress} style={{ paddingBottom: 5 }}>
-        <Text style={{ textAlign: 'right', fontFamily: 'Lato', fontSize: 20 }}>
+      <Pressable onPress={handlePress} style={{ paddingBottom: 10 }}>
+        <Text style={{ textAlign: 'left', fontFamily: 'Lato', fontSize: 30 }}>
           kataba.app
         </Text>
       </Pressable>

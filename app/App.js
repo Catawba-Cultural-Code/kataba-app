@@ -1,9 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
-import {
-  createNativeStackNavigator,
-  DefaultTheme,
-} from '@react-navigation/native-stack'
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { DefaultTheme } from '@react-navigation/native'
 import Home from './Screens/Home'
 import { ThemeProvider } from './hooks/useTheme'
 import Layout from './Components/Layout'
