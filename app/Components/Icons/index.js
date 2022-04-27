@@ -5,6 +5,9 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Fontisto } from '@expo/vector-icons'
 
+export const QRIcon = ({ size = 24, color = 'black' }) => {
+  return <MaterialIcons name='qr-code-scanner' size={size} color={color} />
+}
 export const LanguageIcon = ({ size = 24, color = 'black' }) => (
   <MaterialCommunityIcons
     name='comment-text-multiple'

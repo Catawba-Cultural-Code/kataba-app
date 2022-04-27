@@ -69,7 +69,10 @@ const Layout = ({ children }) => {
           paddingBottom: Platform.OS == 'ios' ? 20 : 10,
         }}
       >
-        <Header handlePress={() => handlePress('Home')} />
+        <Header
+          handleHome={() => handlePress('Home')}
+          handleQR={() => handlePress('QR')}
+        />
         {children}
         <View
           style={{
