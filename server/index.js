@@ -1,5 +1,5 @@
 require('dotenv').config()
-let PORT = 8080
+let PORT = process.env.PORT || 8080
 const express = require('express')
 const api = require('./api')
 let app = express()
