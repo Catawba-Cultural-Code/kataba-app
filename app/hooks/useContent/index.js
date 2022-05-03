@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-const SERVER_URL = 'http://208.104.194.100:8080'
+const SERVER_URL = 'https://kataba-app.herokuapp.com'
 const ContentContext = createContext()
 
 export const ContentProvider = ({ children }) => {
@@ -22,7 +22,8 @@ export const ContentProvider = ({ children }) => {
 
 const useContent = () => {
   const { content } = useContext(ContentContext)
-  return content
+
+  return content.items || []
 }
 
 export default useContent
