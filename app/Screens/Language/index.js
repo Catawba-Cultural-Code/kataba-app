@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ImageBackground } from 'react-native'
+
 import { LanguageIcon } from '../../Components/Icons'
-import { Page } from '../../Components/Page'
+import { Page, PageHeader } from '../../Components/Page'
 import useContent from '../../hooks/useContent'
-import { COLORS, useTheme } from '../../hooks/useTheme'
+import { useTheme } from '../../hooks/useTheme'
 import Dictionary from './Dictionary'
 const Language = () => {
   const { yellow } = useTheme()
@@ -17,7 +17,12 @@ const Language = () => {
     setDict(arr)
   }, [content])
   return (
-    <Page title='Language' Icon={LanguageIcon} color={yellow}>
+    <Page>
+      <PageHeader
+        title='Language'
+        Icon={LanguageIcon}
+        color={yellow}
+      ></PageHeader>
       <Dictionary dict={dict} />
     </Page>
   )
