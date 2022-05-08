@@ -7,12 +7,18 @@ import { ThemeProvider } from './hooks/useTheme'
 import Layout from './Components/Layout'
 import components from './components'
 import { ContentProvider } from './hooks/useContent'
+import * as Linking from 'expo-linking'
 
+const prefix = Linking.createURL('/')
 const Stack = createNativeStackNavigator()
 
 export default function App() {
+  const linking = {
+    prefixes: [Linking.createURL('/'), 'https://kataba.app'],
+  }
   return (
     <NavigationContainer
+      linking={linking}
       theme={{
         ...DefaultTheme,
         colors: {

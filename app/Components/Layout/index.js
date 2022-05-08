@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
   React.useEffect(() => {
     if (Platform.OS == 'web') {
       if (windowWidth > 650) {
-        setWidth('50%')
+        setWidth('40%')
         return
       }
       setWidth('100%')
