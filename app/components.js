@@ -18,7 +18,13 @@ import { COLORS } from './hooks/useTheme'
 const { red, yellow, green, teal, orange, blue } = COLORS
 export default [
   { name: 'Wellness', color: red, Icon: WellnessIcon, component: Wellness },
-  { name: 'Language', color: yellow, Icon: LanguageIcon, component: Language },
+  {
+    name: 'Language',
+    color: yellow,
+    Icon: LanguageIcon,
+    component: Language,
+    initialScreen: 'Dictionary',
+  },
   {
     name: 'Technology',
     color: green,

@@ -1,14 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native'
 import React from 'react'
-import {
-  View,
-  Text,
-  Pressable,
-  PLatform,
-  Platform,
-  Dimensions,
-  useWindowDimensions,
-} from 'react-native'
+import { View, Pressable, Platform, useWindowDimensions } from 'react-native'
 import components from '../../components'
 
 import { useTheme } from '../../hooks/useTheme'
@@ -34,13 +26,14 @@ const NavButton = ({ children, name = 'Home', color, handlePress }) => {
   )
 }
 const Layout = ({ children }) => {
-  const { red, green, teal, blue, orange, yellow, white } = useTheme()
+  const { white } = useTheme()
   const { navigate } = useNavigation()
   const [current, setCurrent] = React.useState('Home')
   const windowWidth = useWindowDimensions().width
   const [width, setWidth] = React.useState('100%')
   const handlePress = (newName) => {
     setCurrent(newName)
+
     navigate(newName)
   }
   React.useEffect(() => {
@@ -82,13 +75,13 @@ const Layout = ({ children }) => {
             justifyContent: 'space-around',
           }}
         >
-          {components.map(({ name, color, Icon }) => {
+          {components.map(({ name, color, Icon, initialScreen }) => {
             return (
               <NavButton
                 key={name}
                 name={name}
                 color={current == name ? color : white}
-                handlePress={() => handlePress(name)}
+                handlePress={() => handlePress(name, initialScreen)}
               >
                 <Icon />
               </NavButton>

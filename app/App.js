@@ -1,5 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { DefaultTheme } from '@react-navigation/native'
 import Home from './Screens/Home'
 import QR from './Screens/QR'
@@ -8,9 +6,12 @@ import Layout from './Components/Layout'
 import components from './components'
 import { ContentProvider } from './hooks/useContent'
 import * as Linking from 'expo-linking'
-
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator()
 const prefix = Linking.createURL('/')
-const Stack = createNativeStackNavigator()
 
 export default function App() {
   const linking = {

@@ -4,7 +4,7 @@ import { useTheme } from '../../hooks/useTheme'
 import { View, Text, ScrollView } from 'react-native'
 
 import { useNavigation } from '@react-navigation/native'
-export const PageHeader = ({ title, color, Icon }) => {
+export const PageHeader = ({ title, color, Icon, children }) => {
   return (
     <View
       style={{
@@ -26,6 +26,7 @@ export const PageHeader = ({ title, color, Icon }) => {
       >
         {title}
       </Text>
+      {children}
     </View>
   )
 }

@@ -1,11 +1,19 @@
 import React from 'react'
 import { ImageBackground, View, Text } from 'react-native'
+import { PageHeader } from '../../../Components/Page'
 import { COLORS } from '../../../hooks/useTheme'
-
-const Dictionary = ({ dict }) => {
+import { LanguageIcon } from '../../../Components/Icons'
+import { useTheme } from '../../../hooks/useTheme'
+import useLanguage from '../useLanguage'
+const Dictionary = () => {
+  const { yellow } = useTheme()
+  const { dictionary } = useLanguage()
   return (
-    <View>
-      {dict.map((o) => {
+    <>
+      <PageHeader title='Language' Icon={LanguageIcon} color={yellow}>
+        <Text>Hello</Text>
+      </PageHeader>
+      {dictionary.map((o) => {
         const { entry, translations, ipa, images } = o.fields
         return (
           <View
@@ -46,7 +54,7 @@ const Dictionary = ({ dict }) => {
           </View>
         )
       })}
-    </View>
+    </>
   )
 }
 

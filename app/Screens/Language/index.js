@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from 'react'
-
-import { LanguageIcon } from '../../Components/Icons'
+import React, { useEffect } from 'react'
 import { Page, PageHeader } from '../../Components/Page'
-import useContent from '../../hooks/useContent'
-import { useTheme } from '../../hooks/useTheme'
 import Dictionary from './Dictionary'
+
+import { LanguageProvider } from './useLanguage'
+import { useNavigation } from '@react-navigation/native'
+import { Text } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Practice from './Practice'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+const Stack = createNativeStackNavigator()
+
 const Language = () => {
-  const { yellow } = useTheme()
-  const content = useContent()
-  const [dict, setDict] = useState([])
-  useEffect(() => {
-    const arr = content
-      .filter((o) => o.sys.contentType.sys.id == 'languageEntry')
-      .sort((a, b) => a.fields.entry.localeCompare(b.fields.entry))
-    console.log(arr)
-    setDict(arr)
-  }, [content])
+  const navigation = useNavigation()
+
   return (
     <Page>
-      <PageHeader
-        title='Language'
-        Icon={LanguageIcon}
-        color={yellow}
-      ></PageHeader>
-      <Dictionary dict={dict} />
+      <LanguageProvider>
+        <Text>HELLO</Text>
+
+        <Stack.Navigator
+          initialRouteName='Dictionary'
+          screenOptions={{ headerShown: false, gestureEnabled: false }}
+        >
+          <Stack.Screen name='Dictionary' component={Dictionary} />
+          <Stack.Screen name='Practice' component={Practice} />
+        </Stack.Navigator>
+      </LanguageProvider>
     </Page>
   )
 }
