@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ImageBackground, View, Text } from 'react-native'
+import useContent from '../../../hooks/useContent'
 import { COLORS } from '../../../hooks/useTheme'
 
-const Dictionary = ({ dict }) => {
+const Dictionary = () => {
+  const content = useContent()
+  const [dict, setDict] = useState([])
+  useEffect(() => {
+    const arr = content
+      .filter((o) => o.sys.contentType.sys.id == 'languageEntry')
+      .sort((a, b) => a.fields.entry.localeCompare(b.fields.entry))
+
+    setDict(arr)
+  }, [content])
   return (
     <View>
       {dict.map((o) => {

@@ -7,18 +7,10 @@ import { COLORS, useTheme } from '../../hooks/useTheme'
 import Dictionary from './Dictionary'
 const Language = () => {
   const { yellow } = useTheme()
-  const content = useContent()
-  const [dict, setDict] = useState([])
-  useEffect(() => {
-    const arr = content
-      .filter((o) => o.sys.contentType.sys.id == 'languageEntry')
-      .sort((a, b) => a.fields.entry.localeCompare(b.fields.entry))
-    console.log(arr)
-    setDict(arr)
-  }, [content])
+  const [showSearch, setShowSearch] = useState(false)
   return (
     <Page title='Language' Icon={LanguageIcon} color={yellow}>
-      <Dictionary dict={dict} />
+      {showSearch ? <Dictionary /> : null}
     </Page>
   )
 }
