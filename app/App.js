@@ -16,6 +16,16 @@ const prefix = Linking.createURL('/')
 export default function App() {
   const linking = {
     prefixes: [Linking.createURL('/'), 'https://kataba.app'],
+    config: {
+      screens: {
+        Language: {
+          initialRouteName: 'Dictionary',
+          screens: {
+            Dictionary: 'language/dictionary',
+          },
+        },
+      },
+    },
   }
   return (
     <NavigationContainer

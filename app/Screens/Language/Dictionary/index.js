@@ -9,7 +9,7 @@ const Dictionary = () => {
   const { yellow } = useTheme()
   const { dictionary } = useLanguage()
   return (
-    <>
+    <View>
       <PageHeader title='Language' Icon={LanguageIcon} color={yellow}>
         <Text>Hello</Text>
       </PageHeader>
@@ -54,7 +54,7 @@ const Dictionary = () => {
           </View>
         )
       })}
-    </>
+    </View>
   )
 }
 

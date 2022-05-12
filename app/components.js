@@ -23,7 +23,6 @@ export default [
     color: yellow,
     Icon: LanguageIcon,
     component: Language,
-    initialScreen: 'Dictionary',
   },
   {
     name: 'Technology',

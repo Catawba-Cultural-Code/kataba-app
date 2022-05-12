@@ -1,33 +1,23 @@
-import React, { useEffect } from 'react'
-import { Page, PageHeader } from '../../Components/Page'
+import { createStackNavigator } from '@react-navigation/stack'
+import React, { useEffect, useState } from 'react'
+import { View, Text, ImageBackground } from 'react-native'
+import { LanguageIcon } from '../../Components/Icons'
+import { Page } from '../../Components/Page'
+import useContent from '../../hooks/useContent'
+import { COLORS, useTheme } from '../../hooks/useTheme'
 import Dictionary from './Dictionary'
-
 import { LanguageProvider } from './useLanguage'
-import { useNavigation } from '@react-navigation/native'
-import { Text } from 'react-native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Practice from './Practice'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-
-const Stack = createNativeStackNavigator()
-
+const Stack = createStackNavigator()
 const Language = () => {
-  const navigation = useNavigation()
-
   return (
-    <Page>
-      <LanguageProvider>
-        <Text>HELLO</Text>
-
-        <Stack.Navigator
-          initialRouteName='Dictionary'
-          screenOptions={{ headerShown: false, gestureEnabled: false }}
-        >
+    <LanguageProvider>
+      <Page title='Language' Icon={LanguageIcon} color={COLORS.yellow}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name='Dictionary' component={Dictionary} />
-          <Stack.Screen name='Practice' component={Practice} />
         </Stack.Navigator>
-      </LanguageProvider>
-    </Page>
+        {/* <Dictionary dict={dict} /> */}
+      </Page>
+    </LanguageProvider>
   )
 }
 
